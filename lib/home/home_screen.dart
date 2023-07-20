@@ -124,20 +124,14 @@ class _HomeScreenState extends State<_HomeScreen> {
                           name: e.titleBuilder(context));
                     }
 
-                    switch (e.id) {
-                      case 'feed':
-                        return FeedScreen(scrollController: scrollController, id: '-1', name: L10n.current.feed);
-                      case 'subscriptions':
-                        return const SubscriptionsScreen();
-                      case 'groups':
-                        return GroupsScreen(scrollController: scrollController);
-                      case 'trending':
-                        return TrendsScreen(scrollController: scrollController);
-                      case 'saved':
-                        return SavedScreen(scrollController: scrollController);
-                      default:
-                        return const MissingScreen();
-                    }
+                    return switch (e.id) {
+                      'feed' => FeedScreen(scrollController: scrollController, id: '-1', name: L10n.current.feed),
+                      'subscriptions' => const SubscriptionsScreen(),
+                      'groups' => GroupsScreen(scrollController: scrollController),
+                      'trending' => TrendsScreen(scrollController: scrollController),
+                      'saved' => SavedScreen(scrollController: scrollController),
+                      _ => const MissingScreen()
+                    };
                   })
                 ];
               });

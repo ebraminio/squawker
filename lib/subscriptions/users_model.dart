@@ -33,16 +33,12 @@ class SubscriptionsModel extends Store<List<Subscription>> {
         var one = orderByAscending ? a : b;
         var two = orderByAscending ? b : a;
 
-        switch (orderByField) {
-          case 'name':
-            return one.name.toLowerCase().compareTo(two.name.toLowerCase());
-          case 'screen_name':
-            return one.screenName.toLowerCase().compareTo(two.screenName.toLowerCase());
-          case 'created_at':
-            return one.createdAt.compareTo(two.createdAt);
-          default:
-            return one.name.toLowerCase().compareTo(two.name.toLowerCase());
-        }
+        return switch (orderByField) {
+          'name' => one.name.toLowerCase().compareTo(two.name.toLowerCase()),
+          'screen_name' => one.screenName.toLowerCase().compareTo(two.screenName.toLowerCase()),
+          'created_at' => one.createdAt.compareTo(two.createdAt),
+          _ => one.name.toLowerCase().compareTo(two.name.toLowerCase())
+        };
       }).toList();
     });
   }

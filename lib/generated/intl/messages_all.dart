@@ -80,68 +80,38 @@ Map<String, LibraryLoader> _deferredLibraries = {
 };
 
 MessageLookupByLibrary? _findExact(String localeName) {
-  switch (localeName) {
-    case 'ar':
-      return messages_ar.messages;
-    case 'be':
-      return messages_be.messages;
-    case 'be_Latn':
-      return messages_be_latn.messages;
-    case 'ca':
-      return messages_ca.messages;
-    case 'cs':
-      return messages_cs.messages;
-    case 'de':
-      return messages_de.messages;
-    case 'en':
-      return messages_en.messages;
-    case 'eo':
-      return messages_eo.messages;
-    case 'es':
-      return messages_es.messages;
-    case 'et':
-      return messages_et.messages;
-    case 'eu':
-      return messages_eu.messages;
-    case 'fr':
-      return messages_fr.messages;
-    case 'hi':
-      return messages_hi.messages;
-    case 'id':
-      return messages_id.messages;
-    case 'it':
-      return messages_it.messages;
-    case 'ja':
-      return messages_ja.messages;
-    case 'ko':
-      return messages_ko.messages;
-    case 'ml':
-      return messages_ml.messages;
-    case 'nb_NO':
-      return messages_nb_no.messages;
-    case 'nl':
-      return messages_nl.messages;
-    case 'or':
-      return messages_or.messages;
-    case 'pl':
-      return messages_pl.messages;
-    case 'pt':
-      return messages_pt.messages;
-    case 'pt_BR':
-      return messages_pt_br.messages;
-    case 'ro':
-      return messages_ro.messages;
-    case 'ru':
-      return messages_ru.messages;
-    case 'tr':
-      return messages_tr.messages;
-    case 'uk':
-      return messages_uk.messages;
-    case 'zh_Hans':
-      return messages_zh_hans.messages;
-    default:
-      return null;
-  }
+  return switch (localeName) {
+    'ar' => messages_ar.messages,
+    'be' => messages_be.messages,
+    'be_Latn' => messages_be_latn.messages,
+    'ca' => messages_ca.messages,
+    'cs' => messages_cs.messages,
+    'de' => messages_de.messages,
+    'en' => messages_en.messages,
+    'eo' => messages_eo.messages,
+    'es' => messages_es.messages,
+    'et' => messages_et.messages,
+    'eu' => messages_eu.messages,
+    'fr' => messages_fr.messages,
+    'hi' => messages_hi.messages,
+    'id' => messages_id.messages,
+    'it' => messages_it.messages,
+    'ja' => messages_ja.messages,
+    'ko' => messages_ko.messages,
+    'ml' => messages_ml.messages,
+    'nb_NO' => messages_nb_no.messages,
+    'nl' => messages_nl.messages,
+    'or' => messages_or.messages,
+    'pl' => messages_pl.messages,
+    'pt' => messages_pt.messages,
+    'pt_BR' => messages_pt_br.messages,
+    'ro' => messages_ro.messages,
+    'ru' => messages_ru.messages,
+    'tr' => messages_tr.messages,
+    'uk' => messages_uk.messages,
+    'zh_Hans' => messages_zh_hans.messages,
+    _ => null
+  };
 }
 
 /// User programs should call this before using [localeName] for messages.

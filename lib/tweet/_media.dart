@@ -59,16 +59,12 @@ class _TweetMediaItemState extends State<_TweetMediaItem> {
   }
 
   String getMediaType(String? type) {
-    switch (type) {
-      case 'animated_gif':
-        return 'GIF';
-      case 'photo':
-        return 'photo';
-      case 'video':
-        return 'video';
-      default:
-        return 'media';
-    }
+    return switch (type) {
+      'animated_gif' => 'GIF',
+      'photo' => 'photo',
+      'video' => 'video',
+      _ => 'media'
+    };
   }
 
   @override

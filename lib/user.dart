@@ -22,12 +22,10 @@ Widget _createUserAvatar(String? uri, double size) {
       width: size,
       height: size,
       loadStateChanged: (state) {
-        switch (state.extendedImageLoadState) {
-          case LoadState.failed:
-            return const Icon(Icons.error_outline);
-          default:
-            return state.completedWidget;
-        }
+        return switch (state.extendedImageLoadState) {
+          LoadState.failed => const Icon(Icons.error_outline),
+          _ => state.completedWidget
+        };
       },
     );
   }
@@ -43,12 +41,10 @@ Widget _expandUserAvatar(String? uri, double size) {
       width: size,
       height: size,
       loadStateChanged: (state) {
-        switch (state.extendedImageLoadState) {
-          case LoadState.failed:
-            return const Icon(Icons.error_outline);
-          default:
-            return state.completedWidget;
-        }
+        return switch (state.extendedImageLoadState) {
+          LoadState.failed => const Icon(Icons.error_outline),
+          _ => state.completedWidget
+        };
       },
     );
   }
